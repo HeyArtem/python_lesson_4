@@ -37,13 +37,13 @@ print('       *   *  3.переходим к 3 части, поиску редк
 from collections import Counter
 
 def rare_letter(lst):
-    y = list(map(lambda x: x[0], lst)) # неотсортированный список из первых букв
-    print(y) #  ПРО  Печатаем  неотсортированный список из первых букв  ПРО
-    o=Counter(y).most_common()[:-2:-1]  # Нашли самую редковстречающуюся букву в виде словаря
-    print(type(o), o)  # ПРО самую редковстречающуюся букву в виде словаря
+    y = list(map(lambda x: x[0], lst))      # неотсортированный список из первых букв
+    print(y)                               #  ПРО  Печатаем  неотсортированный список из первых букв  ПРО
+    o=Counter(y).most_common()[:-2:-1]           # Нашли самую редковстречающуюся букву в виде словаря
+    print(type(o), o)                    # ПРО самую редковстречающуюся букву в виде словаря
     destroy_tuple = (o[0])
-    print(destroy_tuple)  # ПРО выдернули tuple из списка
-    jast_letter = destroy_tuple[0]  #Ура  Ура    Ура Я ее выдернул изи tuple
+    print(destroy_tuple)                     # ПРО выдернули tuple из списка
+    jast_letter = destroy_tuple[0]                 #Ура  Ура    Ура Я ее выдернул изи tuple
     print('Самая редкая буква в начале слова: ', jast_letter)
     return jast_letter
 print(rare_letter(f_list))
@@ -219,3 +219,78 @@ print('  Словарь    Словарь     Словарь    Словарь  
 #
 # wq = zizi_dict(sorted(d.items(), key=lambda t:t[1]))
 # print(wq)
+
+
+
+
+
+
+
+
+
+print()
+print('   **     **    **    **')
+# Хочу сделать словарь из выражения  {КЛЮЧ (дата время) : ЗНАЧЕНИЕ (338.. и все остальное)}
+# 2011-08-01 18:03:34,338 - exampleApp - INFO - Program started. 2012-09-02 19:13:53,338 - exampleApp - INFO - added 7 and 8 to get15. 2012-10-02 20:23:31,338 - exampleApp - INFO - Done!. 2013-08-01 01:43:33,338 - exampleApp - INFO - Program started. 2011-09-19 12:53:33,338 - exampleApp - INFO - added 10 and 11 to get15. 2012-10-12 22:03:33,338 - exampleApp - INFO - Done!. 2017-08-01 01:13:51,338 - exampleApp - INFO - Program started. 2019-09-19 12:21:34,338 - exampleApp - INFO - added 7 and 8 to get15. 2018-10-12 23:31:01,338 - exampleApp - INFO - Done!
+print('Хочу сделать словарь из выражения  {КЛЮЧ (дата время) : ЗНАЧЕНИЕ (338.. и все остальное)}')
+
+
+
+
+
+
+
+
+
+
+
+
+print()
+Capitals = dict()
+Capitals['Russia'] = 'Moscow'
+Capitals['Ukraine'] = 'Kiev'
+Capitals['USA'] = 'Washington'
+print('пары получились:', Capitals)
+
+print(' * * ')
+
+Countries = ['Russia', 'France', 'USA', 'Russia', 'Kiev']
+for i in Countries:
+    if i in Capitals:
+        print('Столица страны ' + i + ': ' + Capitals[i])
+    else:
+        print('В базе нет страны c названием ' + i)
+
+
+
+# попытка понять по чужой домашке
+print('     ***   попытка понять по чужой домашке   ***  ')
+
+# f = open(r"C:\Users\artem\Documents\Артем\PycharmProjects\python_lesson_4\log", "r")
+# text = f.read()
+# print(text)
+#
+# from datetime import datetime
+#
+# #lines = text.readlines()
+# #print(lines)
+#
+# all_date_times = list(map(lambda i: i.split(',')[0], text))
+# print(all_date_times)
+
+# all_date_times2 = all_date_times.sort(key=lambda date: datetime.strptime(date, '%y-%m-%d %H:%M:S'), reverse=True)
+# print(all_date_times2)
+
+with open('log', 'r') as f:
+    from datetime import datetime
+    lines = f.readlines()  #  readlines() это чтение по строка, команда равносильна
+    print('печатаю перемен lines: ', lines) #ПРО
+
+
+    all_date_times = list(map(lambda i: i.split(',')[0], lines)) # отделили дату от всего остального (делим по ","  и выводим перыую чать выражения)
+    print('печатаю all_date_times: ', all_date_times)
+    print('тип перем: all_date_times: ',type(all_date_times))
+
+    # all_date_times.sort(key=lambda date: datetime.strptime(date, '%Y-%m-%d %H:%M:%S'), reverse=True) # отсортирована дата от последней к ранней
+    # print('All date times which are sorted \n Даты отсортированы:\n', all_date_times)
+    # print('The latest log line is: ', all_date_times[len(all_date_times)-1])
